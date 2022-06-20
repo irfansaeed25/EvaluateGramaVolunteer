@@ -1,0 +1,73 @@
+{%extends 'public/publicbase.html'%} {%load static%} {%block contents%}
+<style></style>
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="full slider_cont_section">
+          <center>
+            <form action="{% url 'publicsideFamilyDetails' %}" method="POST">
+              {% csrf_token %}
+              <input
+                style="height: 35px; width: 50%"
+                type="number"
+                min="6000000000"
+                max="9999999999"
+                placeholder="enter mobile no"
+                name="mobileNo"
+                required
+              />
+              <input type="submit" value="get Details" />
+            </form>
+            <label>or</label>
+            <form action="{% url 'publicsideFamilyDetails' %}" method="POST">
+              {% csrf_token %}
+              <input
+                style="height: 35px; width: 50%"
+                type="number"
+                minlength="12"
+                maxlength="12"
+                placeholder="enter Aadhar No"
+                name="aadharNo"
+                required
+              />
+              <input type="submit" value="get Details" />
+            </form>
+            <label>or</label>
+            <form action="{% url 'publicsideFamilyDetails' %}" method="POST">
+              {% csrf_token %}
+              <input
+                style="height: 35px; width: 50%"
+                type="text"
+                placeholder="enter Ration no"
+                name="rationNo"
+                required
+              />
+              <input type="submit" value="get Details" />
+            </form>
+            <div style="color: red; font-weight: bold; padding-top: 20px">
+              {{msg}}
+            </div>
+          </center>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div id="slider_main" class="carousel slide" data-ride="carousel">
+          <!-- The slideshow -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="{%static 'images/navaratnalu.png'%}"
+                alt="#"
+                width="250"
+                height="350"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%endblock%}
